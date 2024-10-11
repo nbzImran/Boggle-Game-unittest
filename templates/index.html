@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Boggle Game - Play {% endblock %}
+
+{% block content %}
+
+<section id="boogle">
+
+    <table class="board"> 
+        <tbody>
+            {% for row in board %}
+            <tr>
+                {% for letter in row %}
+                   <td>
+                    {{ letter }}
+                   </td> 
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p>High Score:
+        <b class="highscore">{{ highscore }}</b>
+        in <b class="nplays">{{ nplays }}</b> plays
+    </p>
+
+    <p>
+        Score: <b class="score">0</b>
+        seconds Left: <b class="timer"></b>
+    </p>
+
+    <form id="guess-form">  
+    <input type="text" name="word" id="word" placeholder="enter a word" autofocus>
+    <button type="submit">Enter word</button>
+    </form>
+
+    <button id="hint-button">Get Hint</button>
+
+    <p class="msg">
+        <!-- all the messages will be in here -->
+    </p>
+
+
+    <ul class="words">
+        <!-- the stored messages will be here -->
+    </ul>
+
+    <footer>
+        <!-- Display the result -->
+        <p id="result"></p>
+    </footer>
+
+</section>
+
+{% endblock %}
